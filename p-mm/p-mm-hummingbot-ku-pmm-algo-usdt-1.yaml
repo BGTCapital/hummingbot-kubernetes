@@ -171,29 +171,22 @@ data:
     #################################
     ###   Global configurations   ###
     #################################
-
+    
     # For more detailed information: https://docs.hummingbot.io
-    template_version: 33
-
+    template_version: 35
+    
     # Exchange configs
-
+    
     kraken_api_tier: Starter
-
+    
     celo_address:
-    ethereum_wallet:
-    ethereum_rpc_url:
-    ethereum_rpc_ws_url:
-    ethereum_chain_name: MAIN_NET
-    ethereum_token_list_url: https://wispy-bird-88a7.uniswap.workers.dev/?url=http://tokens.1inch.eth.link
-
-    # Kill switch
     kill_switch_enabled: false
     # The rate of performance at which you would want the bot to stop trading (-20 = 20%)
-    kill_switch_rate: -100
-
+    kill_switch_rate: -8.0
+    
     # What to auto-fill in the prompt after each import command (start/config)
     autofill_import:
-
+    
     # Paper Trading
     paper_trade_exchanges:
     - binance
@@ -210,16 +203,16 @@ data:
       WETH: 10
       USDC: 1000
       DAI: 1000
-
-    telegram_enabled: false
-    telegram_token:
-    telegram_chat_id:
-
+    
+    telegram_enabled: true
+    telegram_token: 5125855353:aagbqt5oohm8hgfqwpm2vrwo24b5lqfnyoi
+    telegram_chat_id: '1025750362'
+    
     # Error log sharing
     send_error_logs: true
-
+    
     # Advanced configs: Do NOT touch unless you understand what you are changing
-    instance_id: 55e7d8bfe5a3983eb0174074480e5cf604ecba42
+    instance_id: 40a408a0396c8b682ecab7fa2dfefc9a8d02ab57
     log_level: INFO
     debug_console: false
     strategy_report_interval: 900.0
@@ -229,19 +222,21 @@ data:
     - conf
     key_file_path: conf/
     log_file_path: logs/
-
+    
     # Advanced database options, currently supports SQLAlchemy's included dialects
     # Reference: https://docs.sqlalchemy.org/en/13/dialects/
-    db_engine: sqlite
-    db_host: 127.0.0.1
-    db_port: '3306'
-    db_username: username
-    db_password: password
-    db_name: dbname
+    db_engine: postgresql+psycopg2
+    db_host: 35.224.47.203
+    db_port: '5432'
+    db_username: postgres
+    db_password: Whitehole1
+    db_name: postgres
 
-    script_enabled: false
-    script_file_path:
 
+
+    pmm_script_enabled: false
+    pmm_script_file_path: dynamic_prices.py
+    
     # Balance Limit Configurations
     # e.g. Setting USDT and BTC limits on Binance.
     # balance_asset_limit:
@@ -250,21 +245,21 @@ data:
     #     USDT: 1000
     balance_asset_limit:
       binance:
-
+    
     # Fixed gas price (in Gwei) for Ethereum transactions
-    manual_gas_price: 50
-
+    manual_gas_price: 50.0
+    
     # Gateway API Configurations
     # default host to only use localhost
     # Port need to match the final installation port for Gateway
     gateway_api_host: localhost
     gateway_api_port: '5000'
-
+    
     # Whether to enable aggregated order and trade data collection
-    heartbeat_enabled: true
+    anonymized_metrics_enabled: true
     # The frequency of sending the aggregated order and trade data (in minutes, e.g. enter 5 for once every 5 minutes)
-    heartbeat_interval_min: 15.0
-
+    anonymized_metrics_interval_min: 15.0
+    
     # Command Shortcuts
     # Define abbreviations for often used commands
     # or batch grouped commands together
@@ -274,63 +269,63 @@ data:
       help: Set bid and ask spread
       arguments: [Bid Spread, Ask Spread]
       output: [config bid_spread $1, config ask_spread $2]
-
+    
     # A source for rate oracle, currently binance or coingecko
     rate_oracle_source: binance
-
+    
     # A universal token which to display tokens values in, e.g. USD,EUR,BTC
     global_token: USD
-
+    
     # A symbol for the global token, e.g. $, €
     global_token_symbol: $
-
+    
     # Percentage of API rate limits (on any exchange and any end point) allocated to this bot instance.
     # Enter 50 to indicate 50%. E.g. if the API rate limit is 100 calls per second, and you allocate 50% to this setting,
     # the bot will have a maximum (limit) of 50 calls per second
     rate_limits_share_pct: 100.0
-
+    
     # network timeout when fetching minimum order amount in the `create` command
     create_command_timeout: 10.0
-
+    
     # network timeout for other commands (i.e. import, connect, balance, history)
     other_commands_timeout: 30.0
-
+    
     # Background color of the top pane
     top-pane: '#000000'
-
+    
     # Background color of the bottom pane
     bottom-pane: '#000000'
-
+    
     # Background color of the output pane
     output-pane: '#262626'
-
+    
     # Background color of the input pane
     input-pane: '#1C1C1C'
-
+    
     # Background color of the logs pane
     logs-pane: '#121212'
-
+    
     # Terminal primary color
     terminal-primary: '#5FFFD7'
-
+    
     # Primary label color
     primary-label: '#5FFFD7'
-
+    
     # Secondary label color
     secondary-label: '#FFFFFF'
-
+    
     # Success label color
     success-label: '#5FFFD7'
-
+    
     # Warning label color
     warning-label: '#FFFF00'
-
+    
     # Info label color
     info-label: '#5FD7FF'
-
+    
     # Error label color
     error-label: '#FF0000'
-
+    
     # tabulate table format style (https://github.com/astanin/python-tabulate#table-format)
     tables_format: psql
 ---
