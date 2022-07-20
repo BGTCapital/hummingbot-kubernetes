@@ -2,12 +2,16 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: btc-usdt
+  name: ku-pmm-algo-usdt
+  namespace: hummingbot
+  labels:
+    name: ku-pmm-algo-usdt
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: btc-usdt-config
+  name: ku-pmm-algo-usdt-config
+  namespace: hummingbot
 data:
   quickstart.yml: |
     ########################################################
