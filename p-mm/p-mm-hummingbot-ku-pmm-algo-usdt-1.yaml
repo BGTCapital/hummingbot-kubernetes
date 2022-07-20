@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: ku-pmm-algo-usdt
+  name: ku-pmm-algo-usdt-sa
   namespace: hummingbot
   labels:
-    name: ku-pmm-algo-usdt
+    name: ku-pmm-algo-usdt-sa
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -332,22 +332,23 @@ data:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: btc-usdt
+  name: ku-pmm-algo-usdt
+  namespace: hummingbot
 spec:
   replicas: 1
-  serviceName: btc-usdt
+  serviceName: ku-pmm-algo-usdt
   selector:
     matchLabels:
-      app: btc-usdt-hummingbot
+      app: ku-pmm-algo-usdt-hummingbot
   template:
     metadata:
       labels:
-        app: btc-usdt-hummingbot
+        app: ku-pmm-algo-usdt-hummingbot
     spec:
       serviceAccountName: btc-usdt
       containers:
-        - name: btc-usdt
-          image: coinalpha/hummingbot:development
+        - name: ku-pmm-algo-usdt-sa
+          image: bgtcapital/hummingbot_pg:latest
           imagePullPolicy: IfNotPresent
           tty: true
           stdin: true
@@ -357,12 +358,12 @@ spec:
             - >
               cp -r /readonly-conf/. /conf ; /home/hummingbot/miniconda3/envs/$(head -1 setup/environment-linux.yml | cut -d' ' -f2)/bin/python3
               bin/hummingbot_quickstart.py
-              -p ChangeM3Pl34se
-              -f quickstart.yml
+              -p Whitehole001
+              -f ku-pmm-algo-usdt.yml
           volumeMounts:
             - name: config
               mountPath: "/readonly-conf"
       volumes:
         - name: config
           configMap:
-            name: btc-usdt-config
+            name: ku-pmm-algo-usdt-config
