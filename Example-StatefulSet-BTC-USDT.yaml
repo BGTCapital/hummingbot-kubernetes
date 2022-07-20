@@ -149,7 +149,8 @@ data:
     # For more detailed information, see:
     # https://docs.hummingbot.io/strategies/pure-market-making/#configuration-parameters
   encrypted_default.json: |
-    {"crypto": {"cipher": "aes-128-ctr", "cipherparams": {"iv": "d8a5616866c2606c43693018bcafed6f"}, "ciphertext": "2a688380b2526891dfb3df7ae02e52c6d630", "kdf": "pbkdf2", "kdfparams": {"c": 1000000, "dklen": 32, "prf": "hmac-sha256", "salt": "5e1169dac4635bb84c121e22d7c049ef"}, "mac": "d7ee8c928c993738a5b671ce98c7b1b5f0c0ef899bb1b93a95879a3864d70d62"}, "version": 3}
+    {"crypto": {"cipher": "aes-128-ctr", "cipherparams": {"iv": "103c3c6115a47a0c14937e6c9a1b4dcd"}, "ciphertext": "7768ae536027ce2ed3c141f0fd22b9114409", "kdf": "pbkdf2", "kdfparams": {"c": 1000000, "dklen": 32, "prf": "hmac-sha256", "salt": "bd897c3bc11d0266d7b3c5867f389537"}, "mac": "e4ef1a87dc9ddecce9a7a579f7a88c06f80623efe0b62799eaa51310dd10f4d8"}, "version": 3}
+
   conf_global.yml: |
     #################################
     ###   Global configurations   ###
