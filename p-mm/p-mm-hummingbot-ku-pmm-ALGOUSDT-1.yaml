@@ -11,7 +11,7 @@ metadata:
 data:
   quickstart.yml: |
     ########################################################
-    ###       Pure market making strategy configg         ###
+    ###       Pure market making strategy config         ###
     ########################################################
 
     template_version: 22
