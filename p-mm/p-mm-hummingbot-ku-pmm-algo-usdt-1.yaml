@@ -345,10 +345,21 @@ spec:
       labels:
         app: ku-pmm-algo-usdt-hummingbot
     spec:
-      serviceAccountName: btc-usdt
+      serviceAccountName: ku-pmm-algo-usdt-sa
       containers:
-        - name: ku-pmm-algo-usdt-sa
+        - name: ku-pmm-algo-usdt
           image: bgtcapital/hummingbot_pg:latest
+          resources:
+            limits:
+              cpu: 150m
+#              ephemeral-storage: 1Gi
+              memory: 512Mi
+            requests:
+              cpu: 50m
+#              ephemeral-storage: 1Gi
+              memory: 250Mi
+
+
           imagePullPolicy: IfNotPresent
           tty: true
           stdin: true
